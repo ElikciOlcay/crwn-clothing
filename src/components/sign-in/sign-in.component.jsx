@@ -25,6 +25,11 @@ class SignIn extends React.Component {
             this.setState({email: '', password: ''});
         } catch (error) {
             console.log(error);
+            if(error.code === "auth/user-not-found") {
+                alert("Benutzer ist nicht vorhanden");
+            } else if (error.code === "auth/wrong-password") {
+                alert("Passwort ist nicht korrekt");
+            }
         }
     }
 
@@ -56,7 +61,7 @@ class SignIn extends React.Component {
                         handleChange={this.handleChange}/>
                     <div className="buttons">
                         <CustomButton type="submit">Sign in</CustomButton>
-                        <CustomButton onClick={SignInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
+                        <CustomButton type="button" onClick={SignInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
                     </div>
                     
                 </form>
