@@ -28,6 +28,10 @@ const Header = ({ currentUser }) => (
     </div>
 )
 
+
+
+
+// https://react-redux.js.org/using-react-redux/connect-mapstate
 const mapStateToProps = state => ({
     currentUser: state.user.currentUser
 })
