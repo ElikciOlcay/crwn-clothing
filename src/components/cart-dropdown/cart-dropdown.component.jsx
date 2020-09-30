@@ -7,9 +7,11 @@ import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
+
 import { createStructuredSelector } from 'reselect';
 
-const CartDropdown = ({ cartItems, history }) => (
+const CartDropdown = ({ cartItems, history, dispatch }) => (
     <div className="cart-dropdown">
         <div className="cart-items">
             {
@@ -24,13 +26,17 @@ const CartDropdown = ({ cartItems, history }) => (
                 )
             }
         </div>
-        <CustomButton onClick={() => history.push('/checkout')}>CHECKOUT</CustomButton>
+        <CustomButton onClick={() => {
+            history.push('/checkout');
+            dispatch(toggleCartHidden());
+            }}>CHECKOUT</CustomButton>
     </div>
 )
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems
 });
+
 
 // withRouter erlaubt die history props
 export default withRouter(connect(mapStateToProps)(CartDropdown));
