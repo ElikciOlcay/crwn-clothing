@@ -60,6 +60,7 @@ class App extends React.Component {
   }
 }
 
+// use this for reselct library
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 })

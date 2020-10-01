@@ -16,7 +16,7 @@ const config = {
 
   /* 
      create a user in the users collection if not exist-
-     call this method in Apo.js when user is authenticated
+     call this method in App.js when user is authenticated
   */
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
