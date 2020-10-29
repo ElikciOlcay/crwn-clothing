@@ -1,0 +1,14 @@
+.collectionPage{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em;
+    margin: 1em auto;
+
+    &:after {
+        content: "";
+        flex: auto;
+        width: 100%;
+    }
+}
